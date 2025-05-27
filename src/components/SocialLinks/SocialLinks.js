@@ -43,7 +43,7 @@ const SocialLinks = () => {
   return (
     <SocialLinksContainer>
       <SocialLink 
-        href="https://github.com/sujee-arun31" 
+        href="https://github.com/sujee-arun31/portfolio" 
         target="_blank" 
         rel="noopener noreferrer"
       >
