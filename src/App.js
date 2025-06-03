@@ -1,5 +1,6 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { ThemeProvider, useTheme } from './Styles/ThemeContext';
 import GlobalStyles from './Styles/GlobalStyles';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
@@ -9,25 +10,27 @@ import Projects from './components/Projects/Projects';
 import SocialLinks from './components/SocialLinks/SocialLinks';
 import About from './components/About/About';
 
-const theme = {
-  colors: {
-    primary: '#0066cc', // Professional blue color instead of #ff4d4d
-    background: '#000000',
-    text: '#ffffff'
-  }
-};
+function AppContent() {
+  const { theme } = useTheme();
 
-function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <StyledThemeProvider theme={theme}>
       <GlobalStyles />
       <Background />
       <Header />
       <Hero />
-      <About />  {/* Add this line */}
+      <About />
       <Skills />
       <Projects />
       <SocialLinks />
+    </StyledThemeProvider>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   );
 }

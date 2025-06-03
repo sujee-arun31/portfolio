@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
+import { useTheme } from '../../Styles/ThemeContext';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -10,7 +12,7 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.8);
+  background: ${props => props.theme.colors.navBackground};
   backdrop-filter: blur(5px);
   z-index: 100;
 `;
@@ -36,6 +38,20 @@ const Logo = styled.a`
 const Nav = styled.nav`
   display: flex;
   gap: 2rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    right: ${props => props.isOpen ? '0' : '-100%'};
+    height: 100vh;
+    width: 250px;
+    background: ${props => props.theme.colors.navBackground};
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    transition: right 0.3s ease;
+  }
 `;
 
 const NavLink = styled.a`
@@ -76,26 +92,71 @@ const DownloadButton = styled.a`
   margin-left: 2rem;
 
   &:hover {
-    background-color: ${props => props.theme.colors.text};
+    background-color: ${props => props.theme.colors.primary}80;
     transform: translateY(-2px);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    margin: 1rem 0;
+  }
+`;
+
+const ThemeToggle = styled.button`
+  background: none;
+  border: none;
+  color: ${props => props.theme.colors.text};
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${props => props.theme.colors.primary};
+  }
+`;
+
+const MenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  color: ${props => props.theme.colors.text};
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  @media (max-width: 768px) {
+    display: block;
   }
 `;
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const isDarkTheme = theme.colors.background === '#000000';
+
   return (
     <HeaderContainer>
       <Logo href="#home">
         <span>Sujeetha</span>
       </Logo>
-      <Nav>
-        <NavLink href="#home">Home</NavLink>
-        <NavLink href="#about">About</NavLink>
-        <NavLink href="#skills">Skills</NavLink>
-        <NavLink href="#projects">Projects</NavLink>
-        <DownloadButton href="/Sujeetha_Resume.pdf" download>
+      <Nav isOpen={isMenuOpen}>
+        <NavLink href="#home" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
+        <NavLink href="#about" onClick={() => setIsMenuOpen(false)}>About</NavLink>
+        <NavLink href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</NavLink>
+        <NavLink href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</NavLink>
+        <DownloadButton href="/Sujeetha_Resume.pdf" download onClick={() => setIsMenuOpen(false)}>
           Download CV
         </DownloadButton>
+        <ThemeToggle onClick={toggleTheme}>
+          {isDarkTheme ? <FaSun /> : <FaMoon />}
+        </ThemeToggle>
       </Nav>
+      <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {isMenuOpen ? <FaTimes /> : <FaBars />}
+      </MenuButton>
     </HeaderContainer>
   );
 };
