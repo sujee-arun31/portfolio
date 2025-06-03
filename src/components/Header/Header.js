@@ -65,6 +65,22 @@ const NavLink = styled.a`
   }
 `;
 
+const DownloadButton = styled.a`
+  background-color: ${props => props.theme.colors.primary};
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  margin-left: 2rem;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.text};
+    transform: translateY(-2px);
+  }
+`;
+
 const Header = () => {
   return (
     <HeaderContainer>
@@ -76,6 +92,9 @@ const Header = () => {
         <NavLink href="#about">About</NavLink>
         <NavLink href="#skills">Skills</NavLink>
         <NavLink href="#projects">Projects</NavLink>
+        <DownloadButton href="/Sujeetha_Resume.pdf" download>
+          Download CV
+        </DownloadButton>
       </Nav>
     </HeaderContainer>
   );
