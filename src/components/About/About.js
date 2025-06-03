@@ -101,40 +101,40 @@ const SkillItem = styled.div`
   }
 `;
 
-const TechnicalSkills = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0;
+// const TechnicalSkills = styled.ul`
+//   list-style: none;
+//   padding: 0;
+//   margin: 1.5rem 0;
   
-  li {
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
+//   li {
+//     margin-bottom: 0.8rem;
+//     padding-left: 1.5rem;
+//     position: relative;
     
-    &::before {
-      content: '•';
-      color: ${props => props.theme.colors.primary};
-      position: absolute;
-      left: 0;
-    }
-  }
-`;
+//     &::before {
+//       content: '•';
+//       color: ${props => props.theme.colors.primary};
+//       position: absolute;
+//       left: 0;
+//     }
+//   }
+// `;
 
-const ContactButton = styled(motion.button)`
-  background-color: ${props => props.theme.colors.primary};
-  color: #fff;
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+// const ContactButton = styled(motion.button)`
+//   background-color: ${props => props.theme.colors.primary};
+//   color: #fff;
+//   border: none;
+//   padding: 0.8rem 2rem;
+//   border-radius: 5px;
+//   font-size: 1rem;
+//   cursor: pointer;
+//   transition: all 0.3s ease;
   
-  &:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-  }
-`;
+//   &:hover {
+//     transform: translateY(-2px);
+//     opacity: 0.9;
+//   }
+// `;
 
 const About = () => {
   return (
@@ -159,7 +159,7 @@ const About = () => {
           <Greeting>Hi, I'm a Web Developer</Greeting>
           
           <Description>
-            Results-driven Web Developer with 1 year 3 months of experience in designing, developing, and maintaining responsive 
+            Results-driven Web Developer over a year of experience in designing, developing, and maintaining responsive 
             web applications. Proficient in front-end technologies including HTML, CSS, JavaScript, and React.js. Skilled in optimizing 
             website performance, enhancing user experience, and collaborating with cross-functional teams to deliver scalable 
             solutions. Eager to contribute my technical expertise and problem-solving skills to drive innovation and support business 
