@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaLaptopCode } from 'react-icons/fa';
 
 const ProjectsSection = styled.section`
   min-height: 100vh;
@@ -137,54 +136,92 @@ const ProjectDescription = styled.div`
   }
 `;
 
+const ProjectTechStack = styled.div`
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`;
+
+const TechTag = styled.span`
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  font-size: 0.9rem;
+  color: ${props => props.theme.colors.text};
+`;
+
 const Projects = () => {
   const projects = [
     {
-      icon: <FaGraduationCap />,
       title: 'ANKA VEDA: Integrated Educational Management System',
-      description: (
-        <ul>
-          <li><strong>For Teachers:</strong>
-            <ul>
-              <li>Upload and manage student marks with comprehensive performance analytics (top performers, average, below-average, failing students)</li>
-              <li>Send targeted announcements and homework assignments via WhatsApp with date-wise tracking</li>
-              <li>Add personalized remarks and monitor attendance through detailed reports</li>
-            </ul>
-          </li>
-          <li><strong>Question Bank Functionality:</strong>
-            <ul>
-              <li>Upload and manage diverse educational resources (videos, PDFs, handwritten notes, documents)</li>
-              <li>Create and maintain a robust repository of questions</li>
-            </ul>
-          </li>
-          <li><strong>Examination Module:</strong>
-            <ul>
-              <li>Upload and publish tests with WhatsApp delivery of links and scores</li>
-            </ul>
-          </li>
-          <li><strong>For Principals:</strong>
-            <ul>
-              <li>Send school-wide or class-specific announcements</li>
-              <li>Monitor performance and approve teacher uploaded data</li>
-            </ul>
-          </li>
-        </ul>
+      technologies: ['React js', 'HTML5', 'Tailwind CSS','CSS3', 'Javascript','Spring', 'Java', 'MongoDB'],
+      description: (props) => (
+        <>
+          <ul>
+            <li><strong>For Teachers:</strong>
+              <ul>
+                <li>Upload and manage student marks with comprehensive performance analytics (top performers, average, below-average, failing students)</li>
+                <li>Send targeted announcements and homework assignments via WhatsApp with date-wise tracking</li>
+                <li>Add personalized remarks and monitor attendance through detailed reports</li>
+              </ul>
+            </li>
+            <li><strong>Question Bank Functionality:</strong>
+              <ul>
+                <li>Upload and manage diverse educational resources (videos, PDFs, handwritten notes, documents)</li>
+                <li>Create and maintain a robust repository of questions</li>
+              </ul>
+            </li>
+            <li><strong>Examination Module:</strong>
+              <ul>
+                <li>Upload and publish tests with WhatsApp delivery of links and scores</li>
+              </ul>
+            </li>
+            <li><strong>For Principals:</strong>
+              <ul>
+                <li>Send school-wide or class-specific announcements</li>
+                <li>Monitor performance and approve teacher uploaded data</li>
+              </ul>
+            </li>
+          </ul>
+          <ProjectTechStack>
+            {props.technologies.map(tech => (
+              <TechTag key={tech}>{tech}</TechTag>
+            ))}
+          </ProjectTechStack>
+        </>
       )
     },
     {
-      icon: <FaLaptopCode />,
       title: 'NEET-JEE Test Series Platform',
-      description: (
-        <ul>
-          <li>Developed a platform for mock tests with section-wise analysis for NEET and JEE aspirants</li>
-          <li>Implemented dynamic question displays</li>
-          <li>Integrated a real-time scoring system that provides instant feedback upon test completion, enabling users to immediately gauge their performance</li>
-          <li>Enabled detailed review functionality, allowing users to view the correct answers along with comprehensive explanations</li>
-          <li>Result Analysis: Provided detailed performance analytics displayed area-wise, section-wise, and difficulty-wise</li>
-        </ul>
+      technologies: ['React js', 'HTML5', 'Tailwind CSS','CSS3', 'Javascript','Spring', 'Java', 'MongoDB'],
+      description: (props) => (
+        <>
+          <ul>
+            <li>Developed a platform for mock tests with section-wise analysis for NEET and JEE aspirants</li>
+            <li>Implemented dynamic question displays</li>
+            <li>Integrated a real-time scoring system that provides instant feedback upon test completion, enabling users to immediately gauge their performance</li>
+            <li>Enabled detailed review functionality, allowing users to view the correct answers along with comprehensive explanations</li>
+            <li>Result Analysis: Provided detailed performance analytics displayed area-wise, section-wise, and difficulty-wise</li>
+          </ul>
+          <ProjectTechStack>
+            {props.technologies.map(tech => (
+              <TechTag key={tech}>{tech}</TechTag>
+            ))}
+          </ProjectTechStack>
+        </>
       )
     }
   ];
+
+  const ProjectContent = ({ title, description, technologies }) => (
+    <>
+      <ProjectTitle>{title}</ProjectTitle>
+      <ProjectDescription>
+        {description({ technologies })}
+      </ProjectDescription>
+    </>
+  );
 
   return (
     <ProjectsSection id="projects">
@@ -200,21 +237,14 @@ const Projects = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Showcasing my expertise in educational technology and web development
+        Browse through my latest projects. Each one represents a unique challenge and
+        solution, showcasing different aspects of my technical skills and creativity.
       </ProjectsSubtitle>
+
       <ProjectsGrid>
         {projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.3 }}
-          >
-            <ProjectHeader>
-              <IconWrapper>{project.icon}</IconWrapper>
-              <ProjectTitle>{project.title}</ProjectTitle>
-            </ProjectHeader>
-            <ProjectDescription>{project.description}</ProjectDescription>
+          <ProjectCard key={index}>
+            <ProjectContent {...project} />
           </ProjectCard>
         ))}
       </ProjectsGrid>

@@ -26,6 +26,10 @@ const Logo = styled.a`
   align-items: center;
   transition: color 0.3s;
 
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
   span {
     color: ${props => props.theme.colors.primary};
   }
@@ -61,6 +65,10 @@ const NavLink = styled.a`
   transition: color 0.3s;
   position: relative;
 
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+
   &:after {
     content: '';
     position: absolute;
@@ -91,14 +99,16 @@ const DownloadButton = styled.a`
   transition: all 0.3s ease;
   margin-left: 2rem;
 
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    margin-left: 0;
+    padding: 0.4rem 0.8rem;
+  }
+
   &:hover {
     background-color: ${props => props.theme.colors.primary}80;
     transform: translateY(-2px);
     color: white;
-  }
-
-  @media (max-width: 768px) {
-    margin: 1rem 0;
   }
 `;
 

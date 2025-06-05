@@ -135,7 +135,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Front End Developer
+          Junior Software Developer
         </Subtitle>
         <div style={{ position: 'relative' }}>
           <ContactButton
