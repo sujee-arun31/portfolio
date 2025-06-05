@@ -146,7 +146,8 @@ const About = () => {
           transition={{ duration: 0.5 }}
         >
           <ProfileImage>
-            <img src="/profile.jpg" alt="Profile" />
+          <img src={process.env.PUBLIC_URL + '/profile.jpg'} alt="Profile" />
+
           </ProfileImage>
         </ImageSection>
         

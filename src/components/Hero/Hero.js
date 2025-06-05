@@ -119,7 +119,8 @@ const Hero = () => {
           transition: { duration: 0.3 }
         }}
       >
-        <img src="/images/laptop.png" alt="Laptop" />
+        <img src={process.env.PUBLIC_URL + '/images/laptop.png'} alt="Laptop" />
+
       </ImageContainer>
       
       <Content>
