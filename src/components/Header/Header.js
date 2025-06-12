@@ -136,6 +136,9 @@ const MenuButton = styled.button`
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 101;
+position: relative;
+
 
   @media (max-width: 768px) {
     display: block;

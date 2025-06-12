@@ -8,11 +8,26 @@ const HeroSection = styled.section`
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+   padding: 4rem 10% 2rem; /* Increase top padding */
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 12rem 5% 2rem; /* Increase top padding on small screens too */
+    text-align: center;
+    gap: 2rem;
+    justify-content: flex-start;
+  }
 `;
 
 const Content = styled.div`
   max-width: 600px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-top: 0;
+    order: 2;
+  }
 `;
 
 const ImageContainer = styled(motion.div)`
@@ -27,6 +42,18 @@ const ImageContainer = styled(motion.div)`
     height: auto;
     object-fit: contain;
   }
+
+  @media (max-width: 768px) {
+    width: 280px;
+    height: 280px;
+    margin: 0;
+    order: 1;
+  }
+
+  @media (max-width: 480px) {
+    width: 220px;
+    height: 220px;
+  }
 `;
 
 const Title = styled(motion.h1)`
@@ -36,11 +63,27 @@ const Title = styled(motion.h1)`
   span {
     color: ${props => props.theme.colors.primary};
   }
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
 const Subtitle = styled(motion.h2)`
   font-size: 2rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ContactButton = styled(motion.button)`
@@ -55,6 +98,11 @@ const ContactButton = styled(motion.button)`
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 `;
 
@@ -78,7 +126,7 @@ const ContactInfo = styled(motion.div)`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #333; /* Added dark text color */
+    color: #333;
   }
 
   button {
@@ -94,6 +142,14 @@ const ContactInfo = styled(motion.div)`
     &:hover {
       transform: scale(1.05);
     }
+  }
+
+  @media (max-width: 768px) {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 300px;
+    min-width: auto;
   }
 `;
 

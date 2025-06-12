@@ -28,18 +28,10 @@ const ProjectsTitle = styled(motion.h2)`
     height: 3px;
     background-color: ${props => props.theme.colors.primary};
   }
-  
+
   span {
     color: ${props => props.theme.colors.primary};
   }
-`;
-
-const ProjectsSubtitle = styled(motion.p)`
-  text-align: center;
-  color: ${props => props.theme.colors.text};
-  opacity: 0.8;
-  margin-bottom: 4rem;
-  max-width: 600px;
 `;
 
 const ProjectsGrid = styled.div`
@@ -53,7 +45,7 @@ const ProjectsGrid = styled.div`
 
 const ProjectCard = styled(motion.div)`
   text-align: left;
-  padding: 3rem;
+  padding: 2rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -68,160 +60,62 @@ const ProjectCard = styled(motion.div)`
   }
 `;
 
-const ProjectHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-`;
-
-const IconWrapper = styled.div`
-  font-size: 3.5rem;
-  color: ${props => props.theme.colors.primary};
-  display: flex;
-  align-items: center;
-`;
-
 const ProjectTitle = styled.h3`
   font-size: 2rem;
   color: ${props => props.theme.colors.text};
-  line-height: 1.3;
-  margin: 0;
+  margin-bottom: 1rem;
 `;
 
 const ProjectDescription = styled.div`
   color: ${props => props.theme.colors.text};
   opacity: 0.9;
-  line-height: 1.8;
+  line-height: 1.7;
 
   ul {
-    list-style-type: none;
-    padding-left: 0;
-    text-align: left;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
   }
 
   li {
-    margin-bottom: 1rem;
-    padding-left: 1.8rem;
-    position: relative;
-
-    &:before {
-      content: '→';
-      color: ${props => props.theme.colors.primary};
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
+    margin-bottom: 0.8rem;
   }
 
   strong {
-    color: ${props => props.theme.colors.primary};
-    font-size: 1.1rem;
-    display: block;
+    display: inline-block;
     margin-bottom: 0.5rem;
+    color: ${props => props.theme.colors.primary};
   }
-
-  ul ul {
-    margin-top: 0.5rem;
-    margin-left: 1rem;
-    
-    li {
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-      
-      &:before {
-        content: '•';
-      }
-    }
-  }
-`;
-
-const ProjectTechStack = styled.div`
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-`;
-
-const TechTag = styled.span`
-  padding: 0.3rem 0.8rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  font-size: 0.9rem;
-  color: ${props => props.theme.colors.text};
 `;
 
 const Projects = () => {
   const projects = [
     {
-      title: 'ANKA VEDA: Integrated Educational Management System',
-      technologies: ['React js', 'HTML5', 'Tailwind CSS','CSS3', 'Javascript','Spring', 'Java', 'MongoDB'],
-      description: (props) => (
-        <>
-          <ul>
-            <li><strong>For Teachers:</strong>
-              <ul>
-                <li>Upload and manage student marks with comprehensive performance analytics (top performers, average, below-average, failing students)</li>
-                <li>Send targeted announcements and homework assignments via WhatsApp with date-wise tracking</li>
-                <li>Add personalized remarks and monitor attendance through detailed reports</li>
-              </ul>
-            </li>
-            <li><strong>Question Bank Functionality:</strong>
-              <ul>
-                <li>Upload and manage diverse educational resources (videos, PDFs, handwritten notes, documents)</li>
-                <li>Create and maintain a robust repository of questions</li>
-              </ul>
-            </li>
-            <li><strong>Examination Module:</strong>
-              <ul>
-                <li>Upload and publish tests with WhatsApp delivery of links and scores</li>
-              </ul>
-            </li>
-            <li><strong>For Principals:</strong>
-              <ul>
-                <li>Send school-wide or class-specific announcements</li>
-                <li>Monitor performance and approve teacher uploaded data</li>
-              </ul>
-            </li>
-          </ul>
-          <ProjectTechStack>
-            {props.technologies.map(tech => (
-              <TechTag key={tech}>{tech}</TechTag>
-            ))}
-          </ProjectTechStack>
-        </>
-      )
+      title: 'ANKA VEDA – Integrated Educational Management System',
+      frontend: 'HTML, CSS, JavaScript, React.js',
+      backend: 'Java, SpringBoot',
+      database: 'MongoDB',
+      responsibilities: [
+        'Developed modules for teachers to upload marks, assign homework, and analyze student performance.',
+        'Integrated WhatsApp messaging API to deliver student-specific test links and announcements.',
+        'Designed a principal dashboard to approve data, send announcements, and monitor overall performance.',
+        'Built a dynamic question bank to manage PDFs, videos, and handwritten notes.',
+        'Implemented exam publishing with real-time scoring and controlled access.',
+      ]
     },
     {
       title: 'NEET-JEE Test Series Platform',
-      technologies: ['React js', 'HTML5', 'Tailwind CSS','CSS3', 'Javascript','Spring', 'Java', 'MongoDB'],
-      description: (props) => (
-        <>
-          <ul>
-            <li>Developed a platform for mock tests with section-wise analysis for NEET and JEE aspirants</li>
-            <li>Implemented dynamic question displays</li>
-            <li>Integrated a real-time scoring system that provides instant feedback upon test completion, enabling users to immediately gauge their performance</li>
-            <li>Enabled detailed review functionality, allowing users to view the correct answers along with comprehensive explanations</li>
-            <li>Result Analysis: Provided detailed performance analytics displayed area-wise, section-wise, and difficulty-wise</li>
-          </ul>
-          <ProjectTechStack>
-            {props.technologies.map(tech => (
-              <TechTag key={tech}>{tech}</TechTag>
-            ))}
-          </ProjectTechStack>
-        </>
-      )
+      frontend: 'HTML, CSS, JavaScript, React.js',
+      backend: 'Java, SpringBoot',
+      database: 'MongoDB',
+      responsibilities: [
+        'Built a real-time mock exam platform with automatic scoring and result feedback.',
+        'Created detailed dashboards with section-wise, area-wise, and difficulty-wise performance analysis.',
+        'Developed tracking logic for question timers, skipped, wrong, and correct answers.',
+        'Enabled answer review with explanations and graphical result summaries.',
+        'Integrated a leaderboard displaying top-performing students.',
+      ]
     }
   ];
-
-  const ProjectContent = ({ title, description, technologies }) => (
-    <>
-      <ProjectTitle>{title}</ProjectTitle>
-      <ProjectDescription>
-        {description({ technologies })}
-      </ProjectDescription>
-    </>
-  );
 
   return (
     <ProjectsSection id="projects">
@@ -230,21 +124,45 @@ const Projects = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        My <span>Projects</span>
+        Projects 
       </ProjectsTitle>
-      <ProjectsSubtitle
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        Browse through my latest projects. Each one represents a unique challenge and
-        solution, showcasing different aspects of my technical skills and creativity.
-      </ProjectsSubtitle>
 
       <ProjectsGrid>
-        {projects.map((project, index) => (
-          <ProjectCard key={index}>
-            <ProjectContent {...project} />
+        {projects.map((proj, idx) => (
+          <ProjectCard key={idx}>
+            <ProjectTitle>{`${idx + 1}. ${proj.title}`}</ProjectTitle>
+
+            <table style={{
+              width: '100%',
+              borderCollapse: 'collapse',
+              marginBottom: '1.5rem',
+              fontSize: '1rem',
+              color: '#fff',
+            }}>
+              <tbody>
+                <tr>
+                  <td style={{ border: '1px solid rgba(255,255,255,0.2)', padding: '10px', fontWeight: 'bold' }}>Front End Technology:</td>
+                  <td style={{ border: '1px solid rgba(255,255,255,0.2)', padding: '10px' }}>{proj.frontend}</td>
+                </tr>
+                <tr>
+                  <td style={{ border: '1px solid rgba(255,255,255,0.2)', padding: '10px', fontWeight: 'bold' }}>Back End Technology:</td>
+                  <td style={{ border: '1px solid rgba(255,255,255,0.2)', padding: '10px' }}>{proj.backend}</td>
+                </tr>
+                <tr>
+                  <td style={{ border: '1px solid rgba(255,255,255,0.2)', padding: '10px', fontWeight: 'bold' }}>Database:</td>
+                  <td style={{ border: '1px solid rgba(255,255,255,0.2)', padding: '10px' }}>{proj.database}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <ProjectDescription>
+              <strong>Roles and Responsibilities:</strong>
+              <ul>
+                {proj.responsibilities.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </ProjectDescription>
           </ProjectCard>
         ))}
       </ProjectsGrid>
