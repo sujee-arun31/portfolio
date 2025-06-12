@@ -160,7 +160,12 @@ const Header = () => {
         <NavLink href="#about" onClick={() => setIsMenuOpen(false)}>About</NavLink>
         <NavLink href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</NavLink>
         <NavLink href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</NavLink>
-        <DownloadButton href="/Sujeetha_React.pdf" download onClick={() => setIsMenuOpen(false)}>
+           {/* ✅ Corrected path here */}
+           <DownloadButton
+          href="Sujeetha_React.pdf"
+          download
+          onClick={() => setIsMenuOpen(false)}
+        >
           Download CV
         </DownloadButton>
         <ThemeToggle onClick={toggleTheme}>
